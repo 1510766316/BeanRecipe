@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.bumptech.glide.load.MultiTransformation;
-import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.wgx.love.beanrecipe.glideModule.GlideApp;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
@@ -28,6 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private void show(){
         String url = "http://img0.imgtn.bdimg.com/it/u=2069423848,1745692628&fm=27&gp=0.jpg";
         GlideApp.with(this).asDrawable()
-                .transition(withCrossFade()).centerCrop().miniThumb().dontTransform().load(url).into(imageView);
+                .transition(withCrossFade()).miniThumb().dontTransform().load(url).into(imageView);
     }
 }

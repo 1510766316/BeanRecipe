@@ -5,7 +5,7 @@ import com.bumptech.glide.annotation.GlideOption;
 import com.bumptech.glide.request.RequestOptions;
 
 /**
- * Created by imotor on 17-11-30.
+ * Created by wugx on 17-11-30.
  */
 
 @GlideExtension
