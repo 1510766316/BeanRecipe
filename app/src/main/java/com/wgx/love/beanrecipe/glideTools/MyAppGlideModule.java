@@ -1,4 +1,4 @@
-package com.wgx.love.beanrecipe.glideModule;
+package com.wgx.love.beanrecipe.glideTools;
 
 import android.content.Context;
 import android.util.Log;
@@ -17,7 +17,6 @@ public final class MyAppGlideModule extends AppGlideModule{
     public void applyOptions(Context context, GlideBuilder builder) {
         super.applyOptions(context, builder);
         builder.setLogLevel(Log.DEBUG);
-
         int memoryCacheSizeBytes = 1024 * 1024 * 20; // 内存缓存20mb
         builder.setMemoryCache(new LruResourceCache(memoryCacheSizeBytes));
     }

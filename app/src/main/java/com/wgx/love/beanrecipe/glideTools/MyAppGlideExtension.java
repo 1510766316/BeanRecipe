@@ -1,4 +1,4 @@
-package com.wgx.love.beanrecipe.glideModule;
+package com.wgx.love.beanrecipe.glideTools;
 
 import com.bumptech.glide.annotation.GlideExtension;
 import com.bumptech.glide.annotation.GlideOption;
