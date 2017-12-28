@@ -16,7 +16,7 @@ public interface APIServices {
     @GET("")
     Call<CallInfo<UserInfo>> getUserInfo();
 
-    @GET("api/CalenderInfo/getCalender?date_c=2015-01-01")
+    @GET("api")
     Call<CallInfo<DateInfo>> getDate();
 
 }
