@@ -20,6 +20,9 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+# 代码混淆压缩比，在0~7之间，默认为5，一般不做修改
+-optimizationpasses 5
+
 # 混合时不使用大小写混合，混合后的类名为小写
 -dontusemixedcaseclassnames
 
@@ -38,7 +41,7 @@
 
 # 保留Annotation不混淆
 -keepattributes *Annotation*,InnerClasses
-
+-keep class * extends java.lang.annotation.Annotation { *; }
 # 避免混淆泛型
 -keepattributes Signature
 
@@ -59,7 +62,6 @@
 # 保留我们使用的四大组件，自定义的Application等等这些类不被混淆
 # 因为这些子类都有可能被外部调用
 -keep public class * extends android.app.Activity
--keep public class * extends android.app.AppCompatActivity
 -keep public class * extends android.app.Appliction
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
@@ -131,6 +133,19 @@
     void *(**On*Listener);
 }
 
+# webView处理，项目中没有使用到webView忽略即可
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+    public *;
+}
+-keepclassmembers class * extends android.webkit.webViewClient {
+    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
+    public boolean *(android.webkit.WebView, java.lang.String);
+}
+-keepclassmembers class * extends android.webkit.webViewClient {
+    public void *(android.webkit.webView, jav.lang.String);
+}
+
+
 ######## Glide ############
 -keep public class * implements com.bumptech.glide.module.GlideModule
 -keep public class * extends com.bumptech.glide.module.AppGlideModule
@@ -139,9 +154,17 @@
   public *;
 }
 
-# for DexGuard only
--keepresourcexmlelements manifest/application/meta-data@value=GlideModule
-
-######## retrofit2  ##############
--dontwarn okio.**
 -dontwarn javax.annotation.**
+-dontwarn javax.inject.**
+# OkHttp3
+-dontwarn okio.**
+# Retrofit
+-dontnote retrofit2.Platform
+-dontwarn retrofit2.Platform$Java8
+-keepattributes Signature-keepattributes
+-keepattributes  Exceptions
+
+#自定义的类
+-keep public class com.wgx.love.beanrecipe.retrofitTools.**{*;}
+-keep public class com.wgx.love.beanrecipe.bean.**{*;}
+

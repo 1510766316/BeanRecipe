@@ -1,7 +1,10 @@
 package com.wgx.love.beanrecipe;
 
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                .enqueue(new RequestCallBack<CallInfo<DateInfo>>() {
                    @Override
                    public void onSuccess(Response<CallInfo<DateInfo>> response) {
+                       Log.i(TAG,"response="+response.body().getData().toString());
                        textView.setText(response.body().getData().toString());
 
                    }

@@ -5,5 +5,5 @@ package com.wgx.love.beanrecipe.tools;
  */
 
 public class APPUrl {
-    public static final String Base_url = "";
+    public static final String Base_url = "http://www.beanbean.top/";
 }
